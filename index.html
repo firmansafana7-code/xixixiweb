@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinta Sederhana 💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🌸 Website Cinta Sederhana 🌸</h1>
+
+  <button id="lihatBtn">Klik untuk lihat 💌</button>
+
+  <div id="question">
+    <h2>Kamu mau nggak jadi pacar aku? 😳💖</h2>
+    <button id="iyaBtn">Iyaaa! 😍</button>
+    <button id="nggakBtn">Ngk dulu.. 🙈</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<script>
+    const lihatBtn = document.getElementById("lihatBtn");
+const question = document.getElementById("question");
+const nggakBtn = document.getElementById("nggakBtn");
+const iyaBtn = document.getElementById("iyaBtn");
+
+lihatBtn.addEventListener("click", () => {
+  lihatBtn.style.display = "none";
+  question.style.display = "block";
+  createHearts();
+});
+
+nggakBtn.addEventListener("mouseover", () => {
+  const areaWidth = window.innerWidth - nggakBtn.offsetWidth - 50;
+  const areaHeight = window.innerHeight - nggakBtn.offsetHeight - 150;
+  const newX = Math.random() * areaWidth;
+  const newY = Math.random() * areaHeight;
+
+  // Hindari menutupi tombol "Iya"
+  const iyaRect = iyaBtn.getBoundingClientRect();
+  if (
+    newX > iyaRect.left - 100 &&
+    newX < iyaRect.right + 100 &&
+    newY > iyaRect.top - 50 &&
+    newY < iyaRect.bottom + 50
+  ) {
+    nggakBtn.style.left = iyaRect.right + 120 + "px";
+    nggakBtn.style.top = iyaRect.top + "px";
+  } else {
+    nggakBtn.style.position = "absolute";
+    nggakBtn.style.left = newX + "px";
+    nggakBtn.style.top = newY + "px";
+  }
+});
+
+iyaBtn.addEventListener("click", () => {
+  document.body.innerHTML = `
+    <h1>Yeee! Aku juga sayang kamu 💞🥰</h1>
+    <p style="font-size:1.5em;">💖 Sekarang kita resmi ya 💖</p>
+  `;
+  createHearts();
+});
+
+function createHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 400);
+}
+
+</script>
+</html>
