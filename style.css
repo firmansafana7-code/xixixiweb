@@ -1,61 +1,149 @@
+/* 🌷 Latar & Font */
 body {
-  font-family: "Comic Sans MS", cursive;
-  background-color: #ffcce7;
-  text-align: center;
-  height: 100vh;
-  overflow: hidden;
   margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6c1, #ffcce0, #fff0f5);
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+  font-family: "Poppins", "Comic Sans MS", cursive;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
-h1 {
-  color: #ff4081;
-  font-size: 2.5em;
-  animation: pulse 2s infinite;
+/* 🌸 Container tengah */
+.container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.6);
+  width: 90%;
+  max-width: 400px;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); color: #ff4081; }
-  50% { transform: scale(1.1); color: #ff80ab; }
-  100% { transform: scale(1); color: #ff4081; }
+h1, h2 {
+  color: #e91e63;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px white;
 }
 
+/* 🌼 Tombol */
 button {
-  font-family: "Comic Sans MS", cursive;
-  background-color: #ff80ab;
-  color: white;
+  background: linear-gradient(45deg, #ff69b4, #ff85c1);
   border: none;
+  color: white;
+  padding: 12px 28px;
   border-radius: 25px;
-  padding: 12px 24px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   cursor: pointer;
-  transition: all 0.3s ease;
   margin: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
 }
 
 button:hover {
-  background-color: #ff4081;
   transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
 }
 
+/* 🌈 Posisi awal dan pertanyaan */
 #question {
   display: none;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* 💖 Animasi hati */
+.heart {
+  position: fixed;
+  bottom: 0;
+  animation: float 5s linear infinite;
+  pointer-events: none;
+}
+
+/* 🌈 Animasi latar */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 💕 Animasi hati terbang */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ✨ Transisi lembut */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* 🌷 Tampilan bingkai pertanyaan */
+.love-box {
+  background: rgba(255, 240, 245, 0.85);
+  border: 3px solid #ffb6c1;
+  box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
+  position: relative;
+}
+
+/* 🌹 Header dengan ikon kiri-kanan */
+.love-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.love-icon {
+  width: 50px;
+  height: 50px;
+  animation: floatHeart 3s ease-in-out infinite;
+}
+
+/* 💞 Animasi hati melayang pelan */
+@keyframes floatHeart {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* ❤️ Animasi teks berdenyut */
+.pulse {
+  animation: pulseText 1.2s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0% { transform: scale(1); color: #e91e63; }
+  50% { transform: scale(1.08); color: #ff4081; }
+  100% { transform: scale(1); color: #e91e63; }
+}
+
+/* 🌈 Emoji mengambang lembut di bawah */
+.floating-emojis {
+  font-size: 1.5em;
+  animation: floatEmoji 4s ease-in-out infinite;
   margin-top: 20px;
 }
 
-.heart {
-  position: absolute;
-  color: #ff4d94;
-  animation: float 5s infinite;
-  opacity: 0.7;
-}
-
-@keyframes float {
-  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+@keyframes floatEmoji {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }

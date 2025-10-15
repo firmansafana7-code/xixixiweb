@@ -3,31 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cinta Sederhana 💕</title>
+  <title>For You Destiny 💕</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>🌸 Website Cinta Sederhana 🌸</h1>
-
-  <button id="lihatBtn">Klik untuk lihat 💌</button>
-
-  <div id="question">
-    <h2>Kamu mau nggak jadi pacar aku? 😳💖</h2>
-    <button id="iyaBtn">Iyaaa! 😍</button>
-    <button id="nggakBtn">Ngk dulu.. 🙈</button>
+  <!-- Halaman Awal -->
+  <div id="awal" class="container fade-in">
+    <h1>💖 Hi kk Destiny 💖</h1>
+    <h2>Aku mau ngomong sesuatu nih 😊</h2>
+    <button id="lihatBtn">Klik untuk lihat 💌</button>
   </div>
+
+  <!-- Halaman Pertanyaan -->
+  <div id="question" class="container fade-in love-box">
+  <div class="love-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="love" class="love-icon">
+    <h2 class="pulse">Sebenarnya aku sayang banget sama kamu 😊</h2>
+    <img src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png" alt="love" class="love-icon">
+  </div>
+
+  <div class="mid-emoji">💞💖💘</div>
+
+  <h2 style="margin-top: 20px;">Kamu mau nggak jadi Destiny aku? 🤭💓</h2>
+
+  <div class="btn-group">
+    <button id="iyaBtn">💘 Iyaa! 😍</button>
+    <button id="nggakBtn">🙈 Ngk dulu..</button>
+  </div>
+
+  <div class="floating-emojis">
+    💕 💞 💗 💓 💖 💘 💝 💟
+  </div>
+</div>
+
 
   <script src="script.js"></script>
 </body>
 <script>
-    const lihatBtn = document.getElementById("lihatBtn");
+  const lihatBtn = document.getElementById("lihatBtn");
+const awal = document.getElementById("awal");
 const question = document.getElementById("question");
-const nggakBtn = document.getElementById("nggakBtn");
 const iyaBtn = document.getElementById("iyaBtn");
+const nggakBtn = document.getElementById("nggakBtn");
 
 lihatBtn.addEventListener("click", () => {
-  lihatBtn.style.display = "none";
+  awal.style.display = "none";
   question.style.display = "block";
   createHearts();
 });
@@ -38,7 +59,6 @@ nggakBtn.addEventListener("mouseover", () => {
   const newX = Math.random() * areaWidth;
   const newY = Math.random() * areaHeight;
 
-  // Hindari menutupi tombol "Iya"
   const iyaRect = iyaBtn.getBoundingClientRect();
   if (
     newX > iyaRect.left - 100 &&
@@ -57,8 +77,10 @@ nggakBtn.addEventListener("mouseover", () => {
 
 iyaBtn.addEventListener("click", () => {
   document.body.innerHTML = `
-    <h1>Yeee! Aku juga sayang kamu 💞🥰</h1>
-    <p style="font-size:1.5em;">💖 Sekarang kita resmi ya 💖</p>
+    <div class="container fade-in">
+      <h1>Yeeey! Aku juga sayang kamu 🥰💞</h1>
+      <p style="font-size:1.5em;">Sekarang kita resmi ya 💖</p>
+    </div>
   `;
   createHearts();
 });
